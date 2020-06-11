@@ -1,31 +1,35 @@
 import React from "react";
 import "./TwitterAccountsListElement.css";
 
-const TwitterAccountsListElement = (props) => (
+// destructuring props
+const TwitterAccountsListElement = ({
+  image,
+  name,
+  desc,
+  target,
+  rel,
+  link,
+  deleteTwitterAccount,
+}) => (
   <>
     <div className="avatar">
-      <img className="avatar__image" src={props.image} alt="Twitter Avatar" />
+      <img className="avatar__image" src={image} alt="Twitter Avatar" />
     </div>
 
     <div className="user-info">
       <div className="user-info__text">
-        <h2 className="user-info__name">{props.name}</h2>
-        <p className="user-info__desc">{props.desc}</p>
+        <h2 className="user-info__name">{name}</h2>
+        <p className="user-info__desc">{desc}</p>
       </div>
 
       <div className="user-info__buttons">
-        <a
-          target={props.target}
-          rel={props.rel}
-          className="user-info__link"
-          href={props.link}
-        >
+        <a target={target} rel={rel} className="user-info__link" href={link}>
           Visit Twitter Page
         </a>
 
         <button
           className="user-info__delete"
-          onClick={() => props.deleteTwitterAccount(props.name)}
+          onClick={() => deleteTwitterAccount(name)}
         >
           Delete
         </button>

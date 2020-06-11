@@ -1,10 +1,10 @@
 import React from "react";
-import TwitterAccountsListElement from "../TwitterAccountsListElement/TwitterAccountsListElement";
+import TwitterAccountsListElement from "./TwitterAccountsListElement/TwitterAccountsListElement";
 import "./TwitterAccountsList.css";
 
 const TwitterAccountsList = (props) => {
   return (
-    <ul>
+    <ul className="account__list">
       {props.twitterAccounts.map((twitterAccount) => {
         const { name, image, description, twitterLink } = twitterAccount;
         const target = "_blank";

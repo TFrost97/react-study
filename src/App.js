@@ -12,15 +12,6 @@ class App extends Component {
     twitterAccounts: [...this.initialState],
   };
 
-  // addDummyImg = (image) => {
-  //   if (image.length == 0) {
-  //     image = person;
-  //     return image;
-  //   } else {
-  //     return image;
-  //   }
-  // };
-
   addNewTwitterAccount = (e) => {
     e.preventDefault();
 
@@ -33,49 +24,14 @@ class App extends Component {
       twitterLink: e.target.link.value,
     };
 
-    // if image input is empty ->  add dummy avatar
-    // image = this.addDummyImg(image);
-
-    // clear input
-    // for (const inputText of e.target) {
-    //   inputText.value = "";
-    // }
-
     this.setState((prevState) => ({
       twitterAccounts: [...prevState.twitterAccounts, newTwitterAccount],
-
-      // twitterAccounts = {
-      //   prevState {
-
-      //   }
-
-      //   newTwitterAccount {
-
-      //   }
-      // }
     }));
-
-    // add new account to the state
-    // this.setState(
-    //   {
-    //     twitterAccounts: [
-    //       ...twitterAccounts,
-    //       {
-    //         image,
-    //         name,
-    //         twitterLink,
-    //         description,
-    //       },
-    //     ],
-    //   },
-    //   () => {
-    //     console.log("callback przy render");
-    //   }
-    // );
 
     e.target.reset();
   };
 
+  // filter on data and filter all data except with clicked
   deleteTwitterAccount = (name) => {
     const filteredTwitterAccounts = this.state.twitterAccounts.filter(
       (twitterAccount) => twitterAccount.name !== name
@@ -87,15 +43,16 @@ class App extends Component {
   };
 
   render() {
-    
     return (
       <div className="App">
         <h1>Twitter Accounts List:</h1>
-        <TwitterAccountsList
-          twitterAccounts={this.state.twitterAccounts}
-          deleteTwitterAccount={this.deleteTwitterAccount}
-        />
-        <Form submitFn={this.addNewTwitterAccount} />
+        <div className="wrapper">
+          <TwitterAccountsList
+            twitterAccounts={this.state.twitterAccounts}
+            deleteTwitterAccount={this.deleteTwitterAccount}
+          />
+          <Form submitFn={this.addNewTwitterAccount} />
+        </div>
       </div>
     );
   }
@@ -143,3 +100,38 @@ export default App;
 //     );
 //   }
 // }
+
+// *OLD VERSION addDummyImg = (image) => {
+//   if (image.length == 0) {
+//     image = person;
+//     return image;
+//   } else {
+//     return image;
+//   }
+// };
+
+// *OLD VERSION clear input
+// for (const inputText of e.target) {
+//   inputText.value = "";
+// }
+
+// *OLD VERSION if image input is empty ->  add dummy avatar
+// image = this.addDummyImg(image);
+
+// *OLD VERSION add new account to the state
+// this.setState(
+//   {
+//     twitterAccounts: [
+//       ...twitterAccounts,
+//       {
+//         image,
+//         name,
+//         twitterLink,
+//         description,
+//       },
+//     ],
+//   },
+//   () => {
+//     console.log("callback przy render");
+//   }
+// );
