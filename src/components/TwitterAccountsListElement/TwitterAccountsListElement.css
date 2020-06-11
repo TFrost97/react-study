@@ -1,0 +1,93 @@
+.account {
+  /* font-size: 10px; */
+  /* flex  */
+  display: flex;
+  align-items: center;
+
+  height: 10em;
+  max-height: 10em;
+  width: 80%;
+  margin: 4em auto 0 auto;
+  overflow: hidden;
+  /* background-color: aqua; */
+}
+
+.avatar {
+  height: 100%;
+
+  /* height: 10rem; */
+  /* background-color: blue; */
+}
+
+.avatar__image {
+  height: 100%;
+  border-radius: 50%;
+
+  /* temporary */
+  min-width: 10em;
+  max-width: 10em;
+  /* background-color: blueviolet; */
+}
+
+.user-info {
+  /* flex */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+
+  height: 100%;
+  padding-left: 2em;
+
+  /* background-color: chocolate; */
+}
+
+.user-info__text {
+}
+
+.user-info__name {
+  font-size: 1.8em;
+  margin-bottom: 0.3em;
+  color: #4267b2;
+}
+
+.user-info__desc {
+  font-size: 1.4em;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.user-info__buttons {
+  margin-bottom: 1em;
+}
+
+.user-info__link {
+  color: #4267b2;
+  background: none;
+  border: 0.2em solid #4267b2;
+  /* width: 10em; */
+  padding: 0.7em 1.2em;
+  font-weight: bold;
+  font-size: 1.4em;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.user-info__link:hover {
+  color: #fff;
+  background-color: #4267b2;
+}
+
+.user-info__delete {
+  margin-left: 1em;
+  color: #d82231;
+  background: none;
+  border: 0.2em solid #d82231;
+  /* width: 10em; */
+  padding: 0.7em 1.2em;
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
