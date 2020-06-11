@@ -1,5 +1,5 @@
 import React from "react";
-import "./TwitterAccountsListElement.css";
+import styles from "./TwitterAccountsListElement.module.scss";
 
 // destructuring props
 const TwitterAccountsListElement = ({
@@ -12,23 +12,23 @@ const TwitterAccountsListElement = ({
   deleteTwitterAccount,
 }) => (
   <>
-    <div className="avatar">
-      <img className="avatar__image" src={image} alt="Twitter Avatar" />
+    <div className={styles.avatar}>
+      <img className={styles.avatar__image} src={image} alt="Twitter Avatar" />
     </div>
 
-    <div className="user-info">
-      <div className="user-info__text">
-        <h2 className="user-info__name">{name}</h2>
-        <p className="user-info__desc">{desc}</p>
+    <div className={styles.user}>
+      <div className={styles.user__text}>
+        <h2 className={styles.user__name}>{name}</h2>
+        <p className={styles.user__desc}>{desc}</p>
       </div>
 
-      <div className="user-info__buttons">
-        <a target={target} rel={rel} className="user-info__link" href={link}>
+      <div className={styles.user__buttons}>
+        <a target={target} rel={rel} className={styles.user__link} href={link}>
           Visit Twitter Page
         </a>
 
         <button
-          className="user-info__delete"
+          className={styles.user__delete}
           onClick={() => deleteTwitterAccount(name)}
         >
           Delete

@@ -1,17 +1,3 @@
-.account {
-  /* font-size: 10px; */
-  /* flex  */
-  display: flex;
-  align-items: center;
-
-  /* height: 10em; */
-  /* max-height: 10em; */
-  /* width: 80%; */
-  margin: 4em auto 0 auto;
-  overflow: hidden;
-  /* background-color: aqua; */
-}
-
 .avatar {
   height: 100%;
 
@@ -29,7 +15,7 @@
   /* background-color: blueviolet; */
 }
 
-.user-info {
+.user {
   /* flex */
   display: flex;
   flex-direction: column;
@@ -42,26 +28,26 @@
   /* background-color: chocolate; */
 }
 
-.user-info__text {
+.user__text {
   margin-bottom: 2em;
 }
 
-.user-info__name {
+.user__name {
   font-size: 1.8em;
   margin-bottom: 0.3em;
   color: #4267b2;
 }
 
-.user-info__desc {
+.user__desc {
   font-size: 1.4em;
   color: rgba(0, 0, 0, 0.5);
 }
 
-.user-info__buttons {
+.user__buttons {
   margin-bottom: 1em;
 }
 
-.user-info__link {
+.user__link {
   color: #4267b2;
   background: none;
   border: 0.2em solid #4267b2;
@@ -74,12 +60,12 @@
   transition: all 0.5s ease-in-out;
 }
 
-.user-info__link:hover {
+.user__link:hover {
   color: #fff;
   background-color: #4267b2;
 }
 
-.user-info__delete {
+.user__delete {
   margin-left: 1em;
   color: #d82231;
   background: none;

@@ -1,38 +1,38 @@
 import React from "react";
-import "./Form.css";
+import styles from "./Form.module.scss";
 
 const Form = (props) => (
-  <div className="form">
-    <h2 className="form__title">Add new twitter account</h2>
-    <form className="form__body" onSubmit={props.submitFn}>
+  <div className={styles.form}>
+    <h2 className={styles.form__title}>Add new twitter account</h2>
+    <form className={styles.form__body} onSubmit={props.submitFn}>
       <input
-        className="form__input"
+        className={styles.form__input}
         type="text"
         name="name"
         placeholder="Name"
         required
       />
       <input
-        className="form__input"
+        className={styles.form__input}
         type="text"
         name="link"
         placeholder="Link"
       />
       <input
-        className="form__input"
+        className={styles.form__input}
         type="text"
         name="image"
         placeholder="Image"
       />
       <textarea
-        className="form__input"
+        className={styles.form__input}
         type="text"
         name="desc"
         cols="30"
         rows="10"
         placeholder="Description"
       />
-      <button className="form__button" type="submit">
+      <button className={styles.form__button} type="submit">
         add new item
       </button>
     </form>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import styles from "./App.module.scss";
 import TwitterAccountsList from "./components/TwitterAccountsList/TwitterAccountsList";
 import { twitterAccountsData } from "./localData/twitterAccountsData";
 import Form from "./components/Form/Form";
@@ -46,7 +46,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Twitter Accounts List:</h1>
-        <div className="wrapper">
+        <div className={styles.wrapper}>
           <TwitterAccountsList
             twitterAccounts={this.state.twitterAccounts}
             deleteTwitterAccount={this.deleteTwitterAccount}
