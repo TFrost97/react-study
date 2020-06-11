@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./TwitterAccountsListElement.module.scss";
+import Button from "../../Button/Button";
 
 // destructuring props
 const TwitterAccountsListElement = ({
@@ -23,16 +24,17 @@ const TwitterAccountsListElement = ({
       </div>
 
       <div className={styles.user__buttons}>
-        <a target={target} rel={rel} className={styles.user__link} href={link}>
+        {/* <a target={target} rel={rel} className={styles.user__link} href={link}>
           Visit Twitter Page
-        </a>
+        </a> */}
 
-        <button
-          className={styles.user__delete}
-          onClick={() => deleteTwitterAccount(name)}
-        >
-          Delete
-        </button>
+        <Button tag="a" link={link}>
+          Visit twitter page
+        </Button>
+
+        <Button style="negative" onClick={() => deleteTwitterAccount(name)}>
+          Delete account
+        </Button>
       </div>
     </div>
   </>

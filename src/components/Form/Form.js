@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Form.module.scss";
+import Button from "../Button/Button";
 
 const Form = (props) => (
   <div className={styles.form}>
@@ -32,9 +33,10 @@ const Form = (props) => (
         rows="10"
         placeholder="Description"
       />
-      <button className={styles.form__button} type="submit">
+      {/* <button className={styles.form__button} type="submit">
         add new item
-      </button>
+      </button> */}
+      <Button submit={true}>Add new item</Button>
     </form>
   </div>
 );

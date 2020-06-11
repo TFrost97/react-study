@@ -3,6 +3,7 @@ import styles from "./App.module.scss";
 import TwitterAccountsList from "./components/TwitterAccountsList/TwitterAccountsList";
 import { twitterAccountsData } from "./localData/twitterAccountsData";
 import Form from "./components/Form/Form";
+import Button from "./components/Button/Button";
 import person from "./assets/images/person.png";
 
 class App extends Component {
