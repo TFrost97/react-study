@@ -2,7 +2,7 @@ import image1 from "../assets/images/image1.png";
 import image2 from "../assets/images/image2.png";
 import image3 from "../assets/images/image3.png";
 import image4 from "../assets/images/image4.png";
-import person from "../assets/images/person.png";
+// import person from "../assets/images/person.png";
 
 export const twitterAccountsData = [
   {

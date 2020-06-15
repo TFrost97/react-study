@@ -1,0 +1,33 @@
+.wrapper {
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 60vw;
+  height: 70vh;
+  background-color: #fff;
+  box-shadow: 0 10px 40px -15px rgba(#818181, 0.5);
+  position: fixed;
+}
+
+.closeBtn {
+  position: absolute;
+  // transform: translateY(-50%);
+  top: -6%;
+  right: 1%;
+
+  color: #fff;
+  background-color: #4267b2;
+  border: 0.1 solid #4267b2;
+  // background-color: transparent;
+  // border: medium none;
+  padding: 0.2em 0.5em;
+  border-radius: 20%;
+
+  // &:hover {
+  //   background-color: white;
+  //   color: #4267b2;
+  //   border: 0.1em solid #4267b2;
+  // }
+}

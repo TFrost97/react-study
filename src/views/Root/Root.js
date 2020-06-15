@@ -1,16 +1,24 @@
 import React, { Component } from "react";
-import styles from "./App.module.scss";
-import TwitterAccountsList from "./components/TwitterAccountsList/TwitterAccountsList";
-import { twitterAccountsData } from "./localData/twitterAccountsData";
-import Form from "./components/Form/Form";
-import Button from "./components/Button/Button";
-import person from "./assets/images/person.png";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import styles from "./Root.module.scss";
+// import TwitterAccountsList from "../../components/TwitterAccountsList/TwitterAccountsList";
+import { twitterAccountsData } from "../../localData/twitterAccountsData";
+// import Form from "../../components/Form/Form";
+// import Button from "../../components/Button/Button";
+// import person from "./assets/images/person.png";
 
-class App extends Component {
+import TwittersView from "../TwittersView/TwittersView";
+import ArticlesView from "../ArticlesView/ArticlesView";
+import NotesView from "../NotesView/NotesView";
+import Header from "../../components/Header/Header";
+import Modal from "../../components/Modal/Modal";
+
+class Root extends Component {
   initialState = [...twitterAccountsData];
 
   state = {
     twitterAccounts: [...this.initialState],
+    isModalOpen: true,
   };
 
   addNewTwitterAccount = (e) => {
@@ -43,23 +51,40 @@ class App extends Component {
     });
   };
 
+  openModal = () => {
+    this.setState(() => ({
+      isModalOpen: true,
+    }));
+  };
+
+  closeModal = () => {
+    const bebok = "bebok";
+    this.setState(() => ({
+      isModalOpen: false,
+    }));
+  };
+
   render() {
+    const { isModalOpen } = this.state;
     return (
-      <div className="App">
-        <h1>Twitter Accounts List:</h1>
-        <div className={styles.wrapper}>
-          <TwitterAccountsList
-            twitterAccounts={this.state.twitterAccounts}
-            deleteTwitterAccount={this.deleteTwitterAccount}
-          />
-          <Form submitFn={this.addNewTwitterAccount} />
-        </div>
-      </div>
+      <BrowserRouter>
+        <>
+          <Header openModalFn={this.openModal} />
+          <h1>hello world</h1>
+
+          <Switch>
+            <Route exact path="/" component={TwittersView} />
+            <Route path="/articles" component={ArticlesView} />
+            <Route path="/notes" component={NotesView} />
+          </Switch>
+          {isModalOpen && <Modal closeModalFn={this.closeModal} />}
+        </>
+      </BrowserRouter>
     );
   }
 }
 
-export default App;
+export default Root;
 
 // Komponent Funkcyjny
 // const App = () => {
