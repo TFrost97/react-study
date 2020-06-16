@@ -12,6 +12,8 @@ body {
   font-size: 10px;
   font-family: "Lato";
   font-weight: 400;
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 a {

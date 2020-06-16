@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import MyContext from "../../context";
 import styles from "./Root.module.scss";
 // import TwitterAccountsList from "../../components/TwitterAccountsList/TwitterAccountsList";
-import { twitterAccountsData } from "../../localData/twitterAccountsData";
+// import { twitterAccountsData } from "../../localData/twitterAccountsData";
 // import Form from "../../components/Form/Form";
 // import Button from "../../components/Button/Button";
 // import person from "./assets/images/person.png";
@@ -14,31 +15,32 @@ import Header from "../../components/Header/Header";
 import Modal from "../../components/Modal/Modal";
 
 class Root extends Component {
-  initialState = [...twitterAccountsData];
+  // initialState = [...twitterAccountsData];
 
   state = {
-    twitterAccounts: [...this.initialState],
+    // twitterAccounts: [...this.initialState],
+
+    twitter: [],
+    article: [],
+    note: [],
+
     isModalOpen: true,
   };
 
-  addNewTwitterAccount = (e) => {
+  // filter which radio button is checked
+
+  addNewItem = (e, newItem) => {
     e.preventDefault();
-
-    const { twitterAccounts } = this.state;
-
-    const newTwitterAccount = {
-      name: e.target.name.value,
-      image: e.target.image.value,
-      description: e.target.desc.value,
-      twitterLink: e.target.link.value,
-    };
-
+    console.log(newItem.title);
     this.setState((prevState) => ({
-      twitterAccounts: [...prevState.twitterAccounts, newTwitterAccount],
+      [newItem.type]: [...prevState[newItem.type], newItem],
     }));
 
-    e.target.reset();
+    // e.target.reset();
+    this.closeModal();
   };
+
+  handleChange = () => {};
 
   // filter on data and filter all data except with clicked
   deleteTwitterAccount = (name) => {
@@ -66,19 +68,25 @@ class Root extends Component {
 
   render() {
     const { isModalOpen } = this.state;
+    const contextElements = {
+      ...this.state,
+      addItemFn: this.addNewItem,
+    };
     return (
       <BrowserRouter>
-        <>
-          <Header openModalFn={this.openModal} />
-          <h1>hello world</h1>
+        <MyContext.Provider value={contextElements}>
+          <>
+            <Header openModalFn={this.openModal} />
+            <h1>hello world</h1>
 
-          <Switch>
-            <Route exact path="/" component={TwittersView} />
-            <Route path="/articles" component={ArticlesView} />
-            <Route path="/notes" component={NotesView} />
-          </Switch>
-          {isModalOpen && <Modal closeModalFn={this.closeModal} />}
-        </>
+            <Switch>
+              <Route exact path="/" component={TwittersView} />
+              <Route path="/articles" component={ArticlesView} />
+              <Route path="/notes" component={NotesView} />
+            </Switch>
+            {isModalOpen && <Modal closeModalFn={this.closeModal} />}
+          </>
+        </MyContext.Provider>
       </BrowserRouter>
     );
   }

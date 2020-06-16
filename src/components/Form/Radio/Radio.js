@@ -1,16 +1,21 @@
 import React from "react";
 import styles from "./Radio.module.scss";
 
-const Radio = () => {
+const Radio = ({ types, children, radioOnChangeFn, active }) => {
   return (
-    <label for={types.twitter}>
-      <input
-        id={types.twitter}
-        type="radio"
-        checked={this.state.activeOption === types.twitter}
-        onChange={() => this.handleRadioButtonChange(types.twitter)}
-      />
-      Twitter
-    </label>
+    <>
+      <label htmlFor={types}>
+        <input
+          id={types}
+          type="radio"
+          checked={active === types}
+          onChange={() => radioOnChangeFn(types)}
+        />
+        {children}
+        <span></span>
+      </label>
+    </>
   );
 };
+
+export default Radio;
